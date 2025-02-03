@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
-import { WorkoutPlannerAwsIacStack } from '../lib/workout-planner-aws-iac-stack';
+import { WorkoutPlannerAppSyncStack } from '../lib/workout-planner-aws-iac-stack';
 
 const app = new cdk.App();
-new WorkoutPlannerAwsIacStack(app, 'WorkoutPlannerAwsIacStack', {
+new WorkoutPlannerAppSyncStack(app, 'WorkoutPlannerAwsIacStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
