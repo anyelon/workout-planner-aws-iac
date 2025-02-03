@@ -5,3 +5,74 @@ type Query {
 type Schema {
   query: Query
 }
+
+type Category{
+    id: ID!
+    name: String!
+    description: String
+    active: Boolean
+}
+
+type Exercise{
+    id:ID!
+    name: String!
+    description: String
+    active: Boolean
+    links: [Link!]
+    category: Category
+}
+
+type Link{
+    id:ID!
+    name: String!
+    url: String
+    active: Boolean
+    type: LinkType
+}
+
+enum LinkType{
+    VIDEO
+    PHOTO
+    WEBSITE
+}
+
+type Plan {
+    id:ID!
+    user_id: String!
+    active: Boolean
+    weeks: [Week!]
+    notes: [Note!]
+}
+
+type Week{
+    id:ID!
+    plan: Plan
+    number: Int!
+    date: AWSDateTime
+    workout: [Workout]
+    notes: [Note!]
+}
+
+type Workout{
+    id:ID!
+    exercise: Exercise
+    sets: [Set!]
+    notes: [Note!]
+}
+
+type Set{
+    id:ID!
+    number: Int
+    reps: Int
+    weight: Int
+    totat: Int
+}
+
+type Note{
+    id:ID!
+    user_id: String
+    note: String
+    date: AWSDateTime
+}
+
+scalar AWSDateTime
